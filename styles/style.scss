@@ -1,0 +1,501 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
+$green: #016b31;
+$gold: #ffca1d;
+$black: #333;
+$bc-primary: #f2f2f2;
+$bc-secondary: #f9f9f9;
+
+@mixin font {
+  font-family: "Open Sans", sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+}
+* {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none !important;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility !important;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+body {
+  background-color: $bc-primary;
+  color: $black;
+  font-family: "Ubuntu", sans-serif;
+}
+.container {
+  margin: 0 auto;
+  padding: 0 15px;
+}
+.button {
+  padding: 9px;
+  border-radius: 5px;
+  border: 2px solid $gold;
+  transition: 0.4s;
+  font-size: 18px;
+  background-color: transparent;
+  color: $green;
+  cursor: pointer;
+  width: 100%;
+  height: 54px;
+  letter-spacing: -0.1px;
+  font-weight: 400;
+  transition: 0.4s;
+  &:hover {
+    background-color: $gold;
+  }
+}
+.subtitle {
+  @include font;
+  display: inline-block;
+  position: relative;
+  margin: 70px 0 30px;
+  z-index: 10;
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 15px;
+    background-color: $gold;
+    z-index: -1;
+  }
+}
+.header {
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  background-color: rgba(#f3f3f3, 0.8);
+  backdrop-filter: blur(10px);
+  &__menu {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+  }
+  &__logo {
+    display: flex;
+    align-items: center;
+    img {
+      width: 50px;
+    }
+    span {
+      font-family: "Press Start 2P", cursive;
+      font-size: 28px;
+      color: $green;
+      padding-top: 3px;
+    }
+  }
+  .burger {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 45px;
+    height: 40px;
+    margin-left: auto;
+    span {
+      display: inline-block;
+      width: 100%;
+      height: 3px;
+      border-radius: 4px;
+      background-color: #000;
+      position: relative;
+      &:before {
+        content: "";
+        position: absolute;
+        transform: translate(0, -16px);
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+      }
+      &:after {
+        content: "";
+        position: absolute;
+        transform: translate(0, 16px);
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+      }
+    }
+  }
+  .burger-menu {
+    span {
+      background-color: transparent;
+    }
+    span:before {
+      transform: rotate(40deg);
+      transition: 0.2s;
+    }
+    span:after {
+      transform: rotate(-40deg);
+      transition: 0.2s;
+    }
+  }
+  &__nav {
+    margin-left: auto;
+    display: flex;
+    font-size: 18px;
+    li:not(:last-child) {
+      margin-right: 10px;
+      transition: 0.5s;
+    }
+  }
+  &__link {
+    padding: 13px;
+    color: $green;
+  }
+  // #phone {
+  //   padding: 9px;
+  //   border-radius: 5px;
+  //   border: 2px solid $gold;
+  //   transition: 0.4s;
+  //   font-size: 18px;
+  //   &:hover {
+  //     background-color: $gold;
+  //   }
+  // }
+}
+.hero {
+  overflow-x: hidden;
+  &__wrap {
+    position: relative;
+    min-height: 768px;
+    margin-top: 50px;
+  }
+  &__content {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translate(0, -50%);
+    width: 50%;
+    z-index: 20;
+    h1 {
+      @include font;
+      font-size: 48px;
+      color: $gold;
+      background-clip: text;
+      span {
+        -webkit-text-stroke: 2px $green;
+        color: transparent !important;
+      }
+    }
+  }
+  &__condition {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(30%, -50%);
+    &:before {
+      position: absolute;
+      content: "";
+      width: 765px;
+      height: 490px;
+      background-image: url(../images/wall_bitkoin.jpg);
+      background-size: cover;
+      top: 44%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+    }
+    img {
+      width: 1000px;
+    }
+  }
+}
+.advantages {
+  background-color: $bc-secondary;
+  text-align: center;
+  &__content {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
+    width: 20%;
+    img {
+      height: 96px;
+      width: 96px;
+    }
+    h3 {
+      margin: 20px 0 10px;
+    }
+    p {
+      margin-bottom: 50px;
+    }
+  }
+}
+.conditions {
+  &__wrap {
+    text-align: center;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto 50px;
+  }
+  &__item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+    height: 250px;
+    &:nth-child(2) {
+      flex-direction: row-reverse;
+    }
+    img {
+      height: 250px;
+      margin: 0 auto;
+    }
+    .inner {
+      width: 50%;
+      height: 100%;
+      background-color: $gold;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+			h3 {
+				margin-bottom: 10px;
+			}
+			p {
+				text-align: justify;
+				padding: 0 70px;
+			}
+    }
+  }
+}
+.features {
+  background-color: $bc-secondary;
+  min-height: 700px;
+  text-align: center;
+  padding-bottom: 50px;
+  &__content {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: 0 auto;
+    text-align: start;
+  }
+  .accordion {
+    background-color: transparent;
+    color: #444;
+    padding: 20px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+    opacity: 0.7;
+		cursor: pointer;
+    &:after {
+      content: "\02795"; /* Unicode character for "plus" sign (+) */
+      font-size: 13px;
+      color: #777;
+      float: right;
+      margin-left: 5px;
+    }
+    &:hover {
+      background-color: $green;
+      opacity: 1;
+      color: #fff;
+    }
+  }
+  .active {
+    background-color: $green;
+    opacity: 1;
+    color: #fff;
+    &:after {
+      content: "\2796"; /* Unicode character for "minus" sign (-) */
+    }
+  }
+  .panel {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    border-bottom: 1px solid #000;
+    background-color: $bc-primary;
+    p {
+      margin-bottom: 10px;
+      &:first-child {
+        margin-top: 10px;
+      }
+      &:last-child {
+        margin-bottom: 15px;
+      }
+    }
+    ul {
+      margin: 10px 0;
+    }
+    ul li {
+      margin: 5px 0 5px 20px;
+      list-style: initial;
+      &:before {
+        content: "\25CF";
+        position: absolute;
+        left: -25px;
+        top: -5px;
+      }
+    }
+    ol li {
+      margin: 5px 0 5px 20px;
+      list-style: decimal;
+    }
+  }
+}
+.footer {
+  background-color: $bc-primary;
+  &__wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 50px 0 30px;
+  }
+  &__item {
+    flex: 1 0 auto;
+    padding-right: 150px;
+    max-width: 60%;
+  }
+  &__title {
+    margin-bottom: 35px;
+    font-size: 62px;
+    font-weight: 700;
+    line-height: 100%;
+    color: $green;
+  }
+  &__contacts {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    &-item {
+      width: 50%;
+      &:first-child {
+        margin-right: 100px;
+      }
+      a {
+        display: inline-block;
+        margin-top: 12px;
+        font-size: 34px;
+        line-height: 100%;
+        font-weight: 600;
+        letter-spacing: -1px;
+        border-bottom: 1px solid rgba($black, 0.5);
+        text-decoration: none;
+        color: $black;
+      }
+    }
+  }
+  &__socials {
+    display: flex;
+    justify-content: space-between;
+    &-item {
+      width: 50%;
+      display: flex;
+      a {
+        display: inline-block;
+        display: flex;
+        align-items: center;
+        color: $black;
+        img {
+          border: 2px solid $gold;
+          border-radius: 50%;
+        }
+        &:hover img {
+          border: 2px solid $gold;
+          background-color: $gold;
+        }
+        p {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+  &__form {
+    flex: 1 0 auto;
+    margin: auto;
+  }
+  &__privacy {
+    width: 100%;
+    background: $green;
+    padding: 10px 20px;
+  }
+}
+.footer-form {
+  margin: auto;
+  .fields-list {
+    display: grid;
+    margin-bottom: 9px;
+  }
+  .field-item {
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    div {
+      width: 100%;
+    }
+    .v-placeholder-asterisk {
+      padding-left: 4px;
+      padding-bottom: 2px;
+      font-size: 16px;
+      font-family: "Inter", sans-serif;
+      font-weight: 400;
+      letter-spacing: -0.013em;
+      color: #707072;
+      left: 17px !important;
+      top: 50% !important;
+      transform: translateY(-50%);
+      :focus-visible {
+        outline: -webkit-focus-ring-color auto 1px;
+      }
+    }
+  }
+  .entry-field {
+    width: 100%;
+    padding: 12px 19px 13px;
+    border-radius: 6px;
+    background-color: transparent;
+    font-size: 16px;
+		border: 2px solid $green;
+
+    &:hover {
+			border: 2px solid $green;
+      background-color: $bc-secondary;
+    }
+    &:active,
+    &:focus {
+      color: $black;
+			border: 2px solid $green;
+      background-color: $bc-secondary;
+    }
+  }
+  .form__button {
+    // background-color: transparent;
+    // color: $green;
+    // border: 2px solid $gold;
+    // border-radius: 6px;
+    // cursor: pointer;
+    // width: 100%;
+    // height: 54px;
+    // line-height: 27px;
+    // letter-spacing: -0.1px;
+    // font-size: 16px;
+    // font-weight: 400;
+    // transition: 0.4s;
+  }
+}
